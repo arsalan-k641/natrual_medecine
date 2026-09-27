@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>افق روشن شمس | طب گیاهی</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2F3E30',
+                        accent: '#8A9A8B',
+                        'accent-hover': '#7A8A7B',
+                        'gold': '#CAA24F',
+                        'gold-light': '#DFC07F',
+                        surface: '#F7F5F0',
+                        'surface-dark': '#EDE9E0',
+                    },
+                    fontFamily: {
+                        vazir: ['Vazirmatn', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Vazirmatn', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        
+        html { scroll-behavior: smooth; }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #2F3E30 0%, #3A4D3C 40%, #4A5D4C 100%);
+        }
+        
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #CAA24F, #DFC07F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .leaf-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238A9A8B' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(202, 162, 79, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(202, 162, 79, 0.6); }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-delay {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+        
+        .heartbeat {
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .counter-value {
+            transition: all 0.5s ease;
+        }
+        
+        .nav-scrolled {
+            background: rgba(47, 62, 48, 0.95) !important;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .treatment-card:hover .treatment-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+        
+        .treatment-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(47, 62, 48, 0.2);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F7F5F0; }
+        ::-webkit-scrollbar-thumb { background: #8A9A8B; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #7A8A7B; }
+        
+        .toast {
+            animation: slideIn 0.4s ease-out, fadeOut 0.4s ease-in 2.6s;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        .mobile-menu-open {
+            transform: translateX(0) !important;
+        }
+
+        .decorative-leaf {
+            position: absolute;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-primary overflow-x-hidden">
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed bottom-6 left-6 z-[100] flex flex-col gap-3"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 right-0 left-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center group-hover:bg-gold/30 transition-all duration-300">
+                    <span class="iconify text-gold text-xl" data-icon="mdi:white-balance-sunny"></span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-surface font-bold text-base leading-tight">افق روشن</span>
+                    <span class="text-gold text-xs font-medium tracking-wider">شمس</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#hero" class="text-surface/80 hover:text-gold text-sm font-medium transition-colors duration-300">خانه</a>
+                <a href="#treatments" class="text-surface/80 hover:text-gold text-sm font-medium transition-colors duration-300">درمان‌ها</a>
+                <a href="#about" class="text-surface/80 hover:text-gold text-sm font-medium transition-colors duration-300">درباره ما</a>
+                <a href="#testimonials" class="text-surface/80 hover:text-gold text-sm font-medium transition-colors duration-300">نظرات</a>
+                <a href="#contact" class="bg-gold text-primary px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-gold-light transition-all duration-300 hover:shadow-lg hover:shadow-gold/30">مشاوره رایگان</a>
+            </div>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-surface p-2" onclick="toggleMobileMenu()">
+                <span class="iconify text-2xl" data-icon="mdi:menu"></span>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="fixed inset-0 bg-primary/98 backdrop-blur-lg transform translate-x-full transition-transform duration-500 md:hidden z-[60]">
+            <div class="flex flex-col items-center justify-center h-full gap-8">
+                <button onclick="toggleMobileMenu()" class="absolute top-6 left-6 text-surface p-2">
+                    <span class="iconify text-3xl" data-icon="mdi:close"></span>
+                </button>
+                <a href="#hero" onclick="toggleMobileMenu()" class="text-surface text-2xl font-medium hover:text-gold transition-colors">خانه</a>
+                <a href="#treatments" onclick="toggleMobileMenu()" class="text-surface text-2xl font-medium hover:text-gold transition-colors">درمان‌ها</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="text-surface text-2xl font-medium hover:text-gold transition-colors">درباره ما</a>
+                <a href="#testimonials" onclick="toggleMobileMenu()" class="text-surface text-2xl font-medium hover:text-gold transition-colors">نظرات</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="bg-gold text-primary px-8 py-3 rounded-full text-lg font-semibold mt-4">مشاوره رایگان</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 leaf-pattern opacity-30"></div>
+        <div class="absolute top-20 left-10 w-72 h-72 bg-gold/10 rounded-full blur-3xl float-animation"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl float-delay"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-gold/10 rounded-full"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-gold/5 rounded-full"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-20 relative z-10 w-full">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Text Content -->
+                <div class="text-right">
+                    <div class="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 rounded-full px-5 py-2 mb-8">
+                        <span class="iconify text-gold heartbeat" data-icon="mdi:leaf"></span>
+                        <span class="text-gold text-sm font-medium">طب گیاهی طبیعی</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-surface leading-tight mb-6">
+                        جوانی مجدد
+                        <br>
+                        <span class="text-gradient-gold">جسم و روح</span>
+                    </h1>
+                    
+                    <p class="text-surface/70 text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
+                        درمان ریشه‌ای بیماری‌ها فقط با نسخه‌های گیاهی و طب سنتی.
+                        بازگرداندن شادابی و سلامتی به زندگی شما، بدون عوارض دارویی.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 mb-12">
+                        <a href="#treatments" class="bg-gold text-primary px-8 py-4 rounded-full text-base font-semibold hover:bg-gold-light transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 flex items-center gap-2">
+                            <span>شروع درمان</span>
+                            <span class="iconify text-xl" data-icon="mdi:arrow-left"></span>
+                        </a>
+                        <a href="#about" class="border border-surface/30 text-surface px-8 py-4 rounded-full text-base font-medium hover:bg-surface/10 transition-all duration-300 flex items-center gap-2">
+                            <span class="iconify text-xl" data-icon="mdi:information-outline"></span>
+                            <span>درباره ما</span>
+                        </a>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl md:text-4xl font-bold text-gold counter-value" data-target="15">0</div>
+                            <div class="text-surface/60 text-sm mt-1">سال تجربه</div>
+                        </div>
+                        <div class="text-center border-x border-surface/15">
+                            <div class="text-3xl md:text-4xl font-bold text-gold counter-value" data-target="5000">0</div>
+                            <div class="text-surface/60 text-sm mt-1">بیمار درمان‌شده</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl md:text-4xl font-bold text-gold counter-value" data-target="50">0</div>
+                            <div class="text-surface/60 text-sm mt-1">نسخه گیاهی</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Visual Side (No Images) -->
+                <div class="relative flex justify-center">
+                    <div class="relative w-80 h-80 md:w-[420px] md:h-[420px]">
+                        <!-- Main Circle -->
+                        <div class="absolute inset-0 rounded-full border-2 border-gold/30 pulse-glow bg-gold/5 flex items-center justify-center">
+                            <div class="text-center">
+                                <span class="iconify text-gold text-7xl md:text-8xl heartbeat" data-icon="mdi:leaf-circle-outline"></span>
+                                <p class="text-surface/80 font-bold text-lg mt-4">سلامتی خانواده</p>
+                                <p class="text-gold text-sm mt-1">الصحة هي قوة العائلة</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-gold/20 rounded-2xl backdrop-blur-sm border border-gold/30 flex items-center justify-center float-animation rotate-6">
+                            <span class="iconify text-gold text-3xl" data-icon="mdi:leaf"></span>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 w-20 h-20 bg-accent/20 rounded-2xl backdrop-blur-sm border border-accent/30 flex items-center justify-center float-delay -rotate-6">
+                            <span class="iconify text-accent text-3xl" data-icon="mdi:heart-pulse"></span>
+                        </div>
+                        <div class="absolute top-1/2 -left-8 w-16 h-16 bg-surface/10 rounded-full backdrop-blur-sm border border-surface/20 flex items-center justify-center float-animation" style="animation-delay: 1s;">
+                            <span class="iconify text-gold text-2xl" data-icon="mdi:molecule"></span>
+                        </div>
+                        <div class="absolute top-10 -left-4 w-14 h-14 bg-gold/15 rounded-xl backdrop-blur-sm border border-gold/20 flex items-center justify-center float-delay" style="animation-delay: 0.5s;">
+                            <span class="iconify text-gold text-xl" data-icon="mdi:flower-tulip-outline"></span>
+                        </div>
+                        <div class="absolute bottom-10 -right-4 w-14 h-14 bg-surface/10 rounded-xl backdrop-blur-sm border border-surface/20 flex items-center justify-center float-animation" style="animation-delay: 3s;">
+                            <span class="iconify text-surface/60 text-xl" data-icon="mdi:spa-outline"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+            <span class="text-surface/50 text-xs">اسکرول کنید</span>
+            <span class="iconify text-surface/50 text-xl" data-icon="mdi:chevron-down"></span>
+        </div>
+    </section>
+
+    <!-- Treatments Section -->
+    <section id="treatments" class="py-24 px-6 md:px-12 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-accent text-sm font-semibold tracking-widest uppercase">خدمات درمانی</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
+                    بیماری‌هایی که <span class="text-gold">درمان</span> می‌شوند
+                </h2>
+                <p class="text-primary/60 text-lg max-w-2xl mx-auto">
+                    با استفاده از نسخه‌های گیاهی اثبات‌شده طب سنتی، بیماری‌های زیر به صورت ریشه‌ای درمان می‌شوند
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="treatment-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
+                    <div class="treatment-icon w-16 h-16 rounded-2xl bg-red-50 flex items-center justify-center mb-6 transition-all duration-500">
+                        <span class="iconify text-red-500 text-3xl" data-icon="mdi:liver"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">کبد چرب</h3>
+                    <p class="text-primary/60 leading-relaxed mb-4">
+                        درمان کامل کبد چرب درجه ۱ و ۲ با ترکیبات گیاهی تنظیم‌کننده چربی خون و پاکسازی کبد
+                    </p>
+                    <div class="flex items-center gap-2 text-gold font-medium group-hover:gap-3 transition-all duration-300">
+                        <span class="text-sm">اطلاعات بیشتر</span>
+                        <span class="iconify text-lg" data-icon="mdi:arrow-left"></span>
+                    </div>
+                </div>
+                
+                <div class="treatment-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
+                    <div class="treatment-icon w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mb-6 transition-all duration-500">
+                        <span class="iconify text-blue-500 text-3xl" data-icon="mdi:water-outline"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">دیابت (قند خون)</h3>
+                    <p class="text-primary/60 leading-relaxed mb-4">
+                        کنترل و تنظیم قند خون با گیاهان دارویی مؤثر مانند فارسیا، تل مکھی و جنسینگ
+                    </p>
+                    <div class="flex items-center gap-2 text-gold font-medium group-hover:gap-3 transition-all duration-300">
+                        <span class="text-sm">اطلاعات بیشتر</span>
+                        <span class="iconify text-lg" data-icon="mdi:arrow-left"></span>
+                    </div>
+                </div>
+                
+                <div class="treatment-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
+                    <div class="treatment-icon w-16 h-16 rounded-2xl bg-cyan-50 flex items-center justify-center mb-6 transition-all duration-500">
+                        <span class="iconify text-cyan-600 text-3xl" data-icon="mdi:snowflake"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">سرد مزاجی</h3>
+                    <p class="text-primary/60 leading-relaxed mb-4">
+                        اصلاح مزاج سرد با گیاهان گرم و معتدل عربی، زنجبیل، دارچین و ترکیبات مخصوص
+                    </p>
+                    <div class="flex items-center gap-2 text-gold font-medium group-hover:gap-3 transition-all duration-300">
+                        <span class="text-sm">اطلاعات بیشتر</span>
+                        <span class="iconify text-lg" data-icon="mdi:arrow-left"></span>
+                    </div>
+                </div>
+                
+                <div class="treatment-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
+                    <div class="treatment-icon w-16 h-16 rounded-2xl bg-purple-50 flex items-center justify-center mb-6 transition-all duration-500">
+                        <span class="iconify text-purple-500 text-3xl" data-icon="mdi:smoke-off"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">اعتیاد</h3>
+                    <p class="text-primary/60 leading-relaxed mb-4">
+                        ترک اعتیاد بدون عوارض با روش‌های گیاهی، کاهش تدریجی وسم و پاکسازی بدن
+                    </p>
+                    <div class="flex items-center gap-2 text-gold font-medium group-hover:gap-3 transition-all duration-300">
+                        <span class="text-sm">اطلاعات بیشتر</span>
+                        <span class="iconify text-lg" data-icon="mdi:arrow-left"></span>
+                    </div>
+                </div>
+                
+                <div class="treatment-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
+                    <div class="treatment-icon w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center mb-6 transition-all duration-500">
+                        <span class="iconify text-amber-600 text-3xl" data-icon="mdi:stomach"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">معده و گوارش</h3>
+                    <p class="text-primary/60 leading-relaxed mb-4">
+                        درمان زخم معده، رفلاکس، ورم معده و مشکلات گوارشی با نسخه‌های گیاهی مؤثر
+                    </p>
+                    <div class="flex items-center gap-2 text-gold font-medium group-hover:gap-3 transition-all duration-300">
+                        <span class="text-sm">اطلاعات بیشتر</span>
+                        <span class="iconify text-lg" data-icon="mdi:arrow-left"></span>
+                    </div>
+                </div>
+                
+                <div class="treatment-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
+                    <div class="treatment-icon w-16 h-16 rounded-2xl bg-green-50 flex items-center justify-center mb-6 transition-all duration-500">
+                        <span class="iconify text-green-600 text-3xl" data-icon="mdi:human-male-female"></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">ناباروری و ضعف جنسی</h3>
+                    <p class="text-primary/60 leading-relaxed mb-4">
+                        افزایش قوای جنسی و درمان ناباروری با گیاهان تقویتی مثل شاه‌توت، خرما و زعفران
+                    </p>
+                    <div class="flex items-center gap-2 text-gold font-medium group-hover:gap-3 transition-all duration-300">
+                        <span class="text-sm">اطلاعات بیشتر</span>
+                        <span class="iconify text-lg" data-icon="mdi:arrow-left"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 md:px-12 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 leaf-pattern opacity-20"></div>
+        <div class="absolute top-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Visual Side (No Images) -->
+                <div class="relative scroll-reveal">
+                    <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-accent/20 to-gold/10 border border-surface/10 p-12 flex flex-col items-center justify-center min-h-[400px]">
+                        <!-- Decorative Elements -->
+                        <div class="absolute top-4 right-4 text-surface/10">
+                            <span class="iconify text-8xl" data-icon="mdi:leaf"></span>
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-surface/10">
+                            <span class="iconify text-6xl" data-icon="mdi:flower-tulip-outline"></span>
+                        </div>
+                        
+                        <div class="text-center relative z-10">
+                            <div class="w-24 h-24 rounded-full bg-gold/20 border-2 border-gold/40 flex items-center justify-center mx-auto mb-6">
+                                <span class="iconify text-gold text-5xl heartbeat" data-icon="mdi:hand-heart-outline"></span>
+                            </div>
+                            
+                            <div class="grid grid-cols-3 gap-4 mb-6">
+                                <div class="w-16 h-16 rounded-xl bg-surface/10 flex items-center justify-center">
+                                    <span class="iconify text-gold text-2xl" data-icon="mdi:account-group"></span>
+                                </div>
+                                <div class="w-16 h-16 rounded-xl bg-surface/10 flex items-center justify-center">
+                                    <span class="iconify text-gold text-2xl" data-icon="mdi:home-heart"></span>
+                                </div>
+                                <div class="w-16 h-16 rounded-xl bg-surface/10 flex items-center justify-center">
+                                    <span class="iconify text-gold text-2xl" data-icon="mdi:shield-check-outline"></span>
+                                </div>
+                            </div>
+                            
+                            <p class="text-surface/60 text-lg font-medium">از بیماری تا سلامتی</p>
+                            <p class="text-gold text-sm mt-2">الخدمات الصحية المبكرة</p>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -bottom-6 -left-6 bg-gold text-primary rounded-2xl p-6 shadow-xl">
+                        <div class="text-3xl font-bold">+15</div>
+                        <div class="text-sm font-medium">سال سابقه</div>
+                    </div>
+                </div>
+                
+                <!-- Text Side -->
+                <div class="scroll-reveal">
+                    <span class="text-gold text-sm font-semibold tracking-widest">درباره ما</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-surface mt-3 mb-6">
+                        افق روشن شمس
+                        <br>
+                        <span class="text-gold">مسیر سلامتی طبیعی</span>
+                    </h2>
+                    
+                    <p class="text-surface/70 text-lg leading-relaxed mb-6">
+                        کلینیک افق روشن شمس با بیش از ۱۵ سال سابقه در زمینه طب گیاهی و سنتی، 
+                        مکانی مطمئن برای درمان ریشه‌ای بیماری‌ها بدون استفاده از داروهای شیمیایی است.
+                    </p>
+                    
+                    <p class="text-surface/70 leading-relaxed mb-8">
+                        ما معتقدیم هر بیماری ریشه در عدم تعادل بدن دارد و با بازگرداندن تعادل 
+                        طبیعی با استفاده از گیاهان دارویی، می‌توان جسم و روح را مجدداً جوان کرد.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0">
+                                <span class="iconify text-gold text-xl" data-icon="mdi:check-circle"></span>
+                            </div>
+                            <span class="text-surface/80">فقط نسخه‌های ۱۰۰٪ گیاهی و طبیعی</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0">
+                                <span class="iconify text-gold text-xl" data-icon="mdi:check-circle"></span>
+                            </div>
+                            <span class="text-surface/80">بدون عوارض جانبی داروهای شیمیایی</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0">
+                                <span class="iconify text-gold text-xl" data-icon="mdi:check-circle"></span>
+                            </div>
+                            <span class="text-surface/80">مشاوره و پیگیری رایگان تا پایان درمان</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0">
+                                <span class="iconify text-gold text-xl" data-icon="mdi:check-circle"></span>
+                            </div>
+                            <span class="text-surface/80">نسخه‌های شخصی‌سازی‌شده بر اساس مزاج</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-gold text-primary px-8 py-4 rounded-full font-semibold hover:bg-gold-light transition-all duration-300 hover:shadow-xl hover:shadow-gold/30">
+                        <span>رزرو نوبت مشاوره</span>
+                        <span class="iconify text-xl" data-icon="mdi:arrow-left"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-24 px-6 md:px-12 bg-surface-dark relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-accent text-sm font-semibold tracking-widest">مراحل درمان</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
+                    مسیر <span class="text-gold">سلامتی</span> شما
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8 relative">
+                <div class="hidden md:block absolute top-12 right-[12.5%] left-[12.5%] h-0.5 bg-gradient-to-l from-gold via-accent to-gold"></div>
+                
+                <div class="text-center scroll-reveal relative">
+                    <div class="w-24 h-24 rounded-full bg-white border-2 border-gold flex items-center justify-center mx-auto mb-6 relative z-10 shadow-lg">
+                        <span class="iconify text-gold text-4xl" data-icon="mdi:phone-in-talk"></span>
+                    </div>
+                    <div class="bg-gold/10 text-gold text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">مرحله ۱</div>
+                    <h3 class="font-bold text-lg mb-2">مشاوره اولیه</h3>
+                    <p class="text-primary/60 text-sm">تماس تلفنی یا مراجعه حضوری برای بررسی وضعیت سلامتی</p>
+                </div>
+                
+                <div class="text-center scroll-reveal relative">
+                    <div class="w-24 h-24 rounded-full bg-white border-2 border-accent flex items-center justify-center mx-auto mb-6 relative z-10 shadow-lg">
+                        <span class="iconify text-accent text-4xl" data-icon="mdi:stethoscope"></span>
+                    </div>
+                    <div class="bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">مرحله ۲</div>
+                    <h3 class="font-bold text-lg mb-2">تشخیص مزاج</h3>
+                    <p class="text-primary/60 text-sm">تعیین مزاج و شناسایی ریشه بیماری بر اساس طب سنتی</p>
+                </div>
+                
+                <div class="text-center scroll-reveal relative">
+                    <div class="w-24 h-24 rounded-full bg-white border-2 border-gold flex items-center justify-center mx-auto mb-6 relative z-10 shadow-lg">
+                        <span class="iconify text-gold text-4xl" data-icon="mdi:prescription"></span>
+                    </div>
+                    <div class="bg-gold/10 text-gold text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">مرحله ۳</div>
+                    <h3 class="font-bold text-lg mb-2">تجویز نسخه</h3>
+                    <p class="text-primary/60 text-sm">تهیه نسخه گیاهی شخصی‌سازی‌شده متناسب با مزاج شما</p>
+                </div>
+                
+                <div class="text-center scroll-reveal relative">
+                    <div class="w-24 h-24 rounded-full bg-white border-2 border-accent flex items-center justify-center mx-auto mb-6 relative z-10 shadow-lg">
+                        <span class="iconify text-accent text-4xl" data-icon="mdi:heart-circle-outline"></span>
+                    </div>
+                    <div class="bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">مرحله ۴</div>
+                    <h3 class="font-bold text-lg mb-2">سلامتی کامل</h3>
+                    <p class="text-primary/60 text-sm">پیگیری مستمر تا حصول نتیجه نهایی و سلامتی کامل</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 px-6 md:px-12 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="text-accent text-sm font-semibold tracking-widest">نظرات بیماران</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
+                    صدای <span class="text-gold">سلامتی</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-300 scroll-reveal relative">
+                    <div class="absolute top-6 left-6">
+                        <span class="iconify text-gold/20 text-5xl" data-icon="mdi:format-quote-close"></span>
+                    </div>
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                    </div>
+                    <p class="text-primary/70 leading-relaxed mb-6">
+                        بعد از ۳ ماه درمان کبد چرب با نسخه‌های گیاهی دکتر شمس، تمام آزمایش‌هایم نرمال شد. 
+                        واقعاً معجزه طب گیاهی!
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                            <span class="iconify text-accent text-xl" data-icon="mdi:account"></span>
+                        </div>
+                        <div>
+                            <div class="font-bold">مریم احمدی</div>
+                            <div class="text-primary/50 text-sm">درمان کبد چرب</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-300 scroll-reveal relative">
+                    <div class="absolute top-6 left-6">
+                        <span class="iconify text-gold/20 text-5xl" data-icon="mdi:format-quote-close"></span>
+                    </div>
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                    </div>
+                    <p class="text-primary/70 leading-relaxed mb-6">
+                        قند خونم از ۳۲۰ به ۱۱۰ رسید فقط با گیاهان دارویی. هیچ داروی شیمیایی مصرف نکردم. 
+                        خدا قوت به دکتر شمس.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">
+                            <span class="iconify text-gold text-xl" data-icon="mdi:account"></span>
+                        </div>
+                        <div>
+                            <div class="font-bold">علی رضایی</div>
+                            <div class="text-primary/50 text-sm">درمان دیابت</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-300 scroll-reveal relative">
+                    <div class="absolute top-6 left-6">
+                        <span class="iconify text-gold/20 text-5xl" data-icon="mdi:format-quote-close"></span>
+                    </div>
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-gold/40 text-sm" data-icon="mdi:star"></span>
+                    </div>
+                    <p class="text-primary/70 leading-relaxed mb-6">
+                        بعد از سال‌ها اعتیاد، با نسخه‌های گیاهی ترک کردم بدون درد و عوارض. 
+                        زندگی دوم پیدا کردم. ممنون افق روشن شمس.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                            <span class="iconify text-accent text-xl" data-icon="mdi:account"></span>
+                        </div>
+                        <div>
+                            <div class="font-bold">رضا کریمی</div>
+                            <div class="text-primary/50 text-sm">ترک اعتیاد</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Rejuvenation Section -->
+    <section class="py-24 px-6 md:px-12 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 leaf-pattern opacity-15"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/5 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10 scroll-reveal">
+            <div class="w-20 h-20 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-8 pulse-glow">
+                <span class="iconify text-gold text-4xl heartbeat" data-icon="mdi:leaf-circle-outline"></span>
+            </div>
+            
+            <h2 class="text-3xl md:text-5xl font-bold text-surface mb-6">
+                جوانی مجدد
+                <br>
+                <span class="text-gradient-gold font-playfair italic">جسم و روح</span>
+            </h2>
+            
+            <p class="text-surface/70 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
+                سلامتی حق شماست و ما اینجا هستیم تا با قدرت گیاهان دارویی، 
+                مسیر بازگشت به شادابی و جوانی را به شما نشان دهیم.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#contact" class="bg-gold text-primary px-10 py-4 rounded-full text-lg font-semibold hover:bg-gold-light transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 flex items-center gap-2">
+                    <span class="iconify text-xl" data-icon="mdi:calendar-check"></span>
+                    <span>رزرو نوبت</span>
+                </a>
+                <a href="tel:+989123456789" class="border border-surface/30 text-surface px-10 py-4 rounded-full text-lg font-medium hover:bg-surface/10 transition-all duration-300 flex items-center gap-2">
+                    <span class="iconify text-xl" data-icon="mdi:phone"></span>
+                    <span>تماس مستقیم</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 md:px-12 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="scroll-reveal">
+                    <span class="text-accent text-sm font-semibold tracking-widest">تماس با ما</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
+                        مشاوره <span class="text-gold">رایگان</span>
+                    </h2>
+                    <p class="text-primary/60 mb-8">
+                        فرم زیر را پر کنید تا کارشناسان ما در اسرع وقت با شما تماس بگیرند.
+                    </p>
+                    
+                    <form id="contact-form" onsubmit="handleSubmit(event)" class="space-y-5">
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="text-sm font-medium text-primary/80 mb-2 block">نام و نام خانوادگی</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-surface focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all duration-300 outline-none" placeholder="مثلاً: محمد احمدی">
+                            </div>
+                            <div>
+                                <label class="text-sm font-medium text-primary/80 mb-2 block">شماره تماس</label>
+                                <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-surface focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all duration-300 outline-none" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="text-sm font-medium text-primary/80 mb-2 block">موضوع مشاوره</label>
+                            <select required class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-surface focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all duration-300 outline-none appearance-none cursor-pointer">
+                                <option value="">انتخاب کنید...</option>
+                                <option>کبد چرب</option>
+                                <option>دیابت (قند خون)</option>
+                                <option>سرد مزاجی</option>
+                                <option>اعتیاد</option>
+                                <option>مشکلات معده و گوارش</option>
+                                <option>ناباروری و ضعف جنسی</option>
+                                <option>جوانی و شادابی</option>
+                                <option>سایر موارد</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="text-sm font-medium text-primary/80 mb-2 block">توضیحات</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-surface focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all duration-300 outline-none resize-none" placeholder="شرح مختصر وضعیت سلامتی خود..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary text-surface py-4 rounded-xl font-semibold hover:bg-accent-hover transition-all duration-300 flex items-center justify-center gap-2">
+                            <span class="iconify text-xl" data-icon="mdi:send"></span>
+                            <span>ارسال درخواست مشاوره</span>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="scroll-reveal">
+                    <div class="bg-primary rounded-2xl p-8 md:p-10 text-surface relative overflow-hidden mb-8">
+                        <div class="absolute top-0 left-0 w-40 h-40 bg-gold/10 rounded-full blur-2xl"></div>
+                        
+                        <h3 class="text-xl font-bold mb-6 relative z-10">اطلاعات تماس</h3>
+                        
+                        <div class="space-y-6 relative z-10">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0">
+                                    <span class="iconify text-gold text-xl" data-icon="mdi:phone"></span>
+                                </div>
+                                <div>
+                                    <div class="text-surface/60 text-sm mb-1">تلفن</div>
+                                    <div class="font-medium" dir="ltr">+98 912 345 6789</div>
+                                    <div class="text-surface/60 text-sm mt-1" dir="ltr">+98 21 1234 5678</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0">
+                                    <span class="iconify text-gold text-xl" data-icon="mdi:map-marker-outline"></span>
+                                </div>
+                                <div>
+                                    <div class="text-surface/60 text-sm mb-1">آدرس</div>
+                                    <div class="font-medium">تهران، خیابان ولیعصر، کوچه بهار، پلاک ۱۲</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0">
+                                    <span class="iconify text-gold text-xl" data-icon="mdi:clock-outline"></span>
+                                </div>
+                                <div>
+                                    <div class="text-surface/60 text-sm mb-1">ساعات کاری</div>
+                                    <div class="font-medium">شنبه تا پنج‌شنبه: ۹ صبح تا ۶ عصر</div>
+                                    <div class="text-surface/60 text-sm mt-1">جمعه: با نوبت قبلی</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 border border-primary/5">
+                        <h4 class="font-bold mb-4">ما را در شبکه‌های اجتماعی دنبال کنید</h4>
+                        <div class="flex gap-3">
+                            <a href="#" class="w-12 h-12 rounded-xl bg-surface flex items-center justify-center hover:bg-green-50 transition-all duration-300 group">
+                                <span class="iconify text-xl text-primary/60 group-hover:text-green-600" data-icon="mdi:whatsapp"></span>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-xl bg-surface flex items-center justify-center hover:bg-blue-50 transition-all duration-300 group">
+                                <span class="iconify text-xl text-primary/60 group-hover:text-blue-500" data-icon="mdi:telegram"></span>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-xl bg-surface flex items-center justify-center hover:bg-pink-50 transition-all duration-300 group">
+                                <span class="iconify text-xl text-primary/60 group-hover:text-pink-500" data-icon="mdi:instagram"></span>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-xl bg-surface flex items-center justify-center hover:bg-red-50 transition-all duration-300 group">
+                                <span class="iconify text-xl text-primary/60 group-hover:text-red-500" data-icon="mdi:youtube"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary border-t border-surface/10 pt-16 pb-8 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center">
+                            <span class="iconify text-gold text-lg" data-icon="mdi:white-balance-sunny"></span>
+                        </div>
+                        <div>
+                            <div class="text-surface font-bold">افق روشن شمس</div>
+                        </div>
+                    </div>
+                    <p class="text-surface/50 text-sm leading-relaxed">
+                        مرکز تخصصی طب گیاهی و سنتی. جوانی مجدد جسم و روح فقط با نسخه‌های گیاهی.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-surface font-bold mb-4">دسترسی سریع</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#hero" class="text-surface/50 hover:text-gold text-sm transition-colors">خانه</a></li>
+                        <li><a href="#treatments" class="text-surface/50 hover:text-gold text-sm transition-colors">درمان‌ها</a></li>
+                        <li><a href="#about" class="text-surface/50 hover:text-gold text-sm transition-colors">درباره ما</a></li>
+                        <li><a href="#testimonials" class="text-surface/50 hover:text-gold text-sm transition-colors">نظرات</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-surface font-bold mb-4">درمان‌ها</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#treatments" class="text-surface/50 hover:text-gold text-sm transition-colors">کبد چرب</a></li>
+                        <li><a href="#treatments" class="text-surface/50 hover:text-gold text-sm transition-colors">دیابت</a></li>
+                        <li><a href="#treatments" class="text-surface/50 hover:text-gold text-sm transition-colors">سرد مزاجی</a></li>
+                        <li><a href="#treatments" class="text-surface/50 hover:text-gold text-sm transition-colors">اعتیاد</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-surface font-bold mb-4">تماس</h4>
+                    <ul class="space-y-2">
+                        <li class="text-surface/50 text-sm" dir="ltr">+98 912 345 6789</li>
+                        <li class="text-surface/50 text-sm">تهران، خیابان ولیعصر</li>
+                        <li class="text-surface/50 text-sm">شنبه تا پنج‌شنبه: ۹ - ۱۸</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-surface/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-surface/40 text-sm">
+                    © ۱۴۰۴ افق روشن شمس. تمامی حقوق محفوظ است.
+                </p>
+                <div class="flex items-center gap-2 text-surface/40 text-sm">
+                    <span class="iconify text-gold text-sm heartbeat" data-icon="mdi:leaf"></span>
+                    <span>ساخته‌شده با عشق به طب طبیعی</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" 
+            class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-gold text-primary shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center opacity-0 pointer-events-none z-50">
+        <span class="iconify text-xl" data-icon="mdi:chevron-up"></span>
+    </button>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('mobile-menu-open');
+            document.body.style.overflow = menu.classList.contains('mobile-menu-open') ? 'hidden' : '';
+        }
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+            
+            const btn = document.getElementById('back-to-top');
+            if (window.scrollY > 500) {
+                btn.classList.remove('opacity-0', 'pointer-events-none');
+                btn.classList.add('opacity-100');
+            } else {
+                btn.classList.add('opacity-0', 'pointer-events-none');
+                btn.classList.remove('opacity-100');
+            }
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.target);
+                    let current = 0;
+                    const increment = target / 60;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        el.textContent = Math.floor(current).toLocaleString('fa-IR');
+                    }, 25);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter-value').forEach(el => counterObserver.observe(el));
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            showToast('درخواست مشاوره شما با موفقیت ثبت شد! به زودی با شما تماس می‌گیریم.', 'success');
+            e.target.reset();
+        }
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            const bgColor = type === 'success' ? 'bg-primary' : 'bg-red-500';
+            const icon = type === 'success' ? 'mdi:check-circle' : 'mdi:alert-circle';
+            
+            toast.className = `toast ${bgColor} text-surface px-6 py-4 rounded-xl shadow-xl flex items-center gap-3 max-w-sm`;
+            toast.innerHTML = `
+                <span class="iconify text-gold text-xl flex-shrink-0" data-icon="${icon}"></span>
+                <span class="text-sm">${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
