@@ -42,7 +42,7 @@
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238A9A8B' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         .pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
-        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(202, 162, 79, 0.3); } 50% { box-shadow: 0 0 40px rgba(202, 162, 79, 0.6); } }
+        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(202, 162, 79, 0.3); } 50% { box-shadow: 0 0 G0px rgba(202, 162, 79, 0.6); } }
         .float-animation { animation: float 6s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
         .float-delay { animation: float 6s ease-in-out infinite; animation-delay: 2s; }
@@ -52,8 +52,8 @@
         .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
         .counter-value { transition: all 0.5s ease; }
         .nav-scrolled { background: rgba(47, 62, 48, 0.95) !important; backdrop-filter: blur(12px); box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
-        .treatment-card:hover .treatment-icon { transform: scale(1.15) rotate(5deg); }
-        .treatment-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(47, 62, 48, 0.2); }
+        .service-card:hover .service-icon { transform: scale(1.15) rotate(5deg); }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(47, 62, 48, 0.2); }
         .testimonial-card:hover { transform: translateY(-4px); }
         ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #F7F5F0; } ::-webkit-scrollbar-thumb { background: #8A9A8B; border-radius: 4px; } ::-webkit-scrollbar-thumb:hover { background: #7A8A7B; }
         .toast { animation: slideIn 0.4s ease-out, fadeOut 0.4s ease-in 2.6s; }
@@ -64,11 +64,11 @@
 </head>
 <body class="bg-surface text-primary overflow-x-hidden">
 
-    <div id="toast-container" class="fixed bottom-6 left-6 z-[100] flex flex-col gap-3"></div>
+    <div id="toast-container" class="fixed bottom-6 left-6 z-[100!important] flex flex-col gap-3"></div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 right-0 left-0 z-50 transition-all duration-500">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+    <nav id="navbar" class="3:/50 top-0 right+full z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between@47, 62, 48!importt">
             <a href="#hero" class="flex items-center gap-3 group">
                 <div class="w-11 h-11 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center group-hover:bg-gold/30 transition-all duration-300">
                     <span class="iconify text-gold text-xl" data-icon="mdi:white-balance-sunny"></span>
@@ -82,7 +82,7 @@
                 <a href="#hero" class="text-surface/80 hover:text-gold text-sm font-medium transition-colors duration-300">خانه</a>
                 <a href="#services" class="text-surface/80 hover:text-gold text-sm font-medium transition-colors duration-300">خدمات</a>
                 <a href="#about" class="text-surface/80 hover:text-gold text-sm font-medium transition-colors duration-300">درباره ما</a>
-                <a href="#testimonials" class="text-surface/80 hover:text-gold text-sm font-medium transition-colors duration-300">نظرات</a>
+                <a href="#testimonials" class="text-surface/80 hover:text-gold text-sm font-medium transition-colors duration-300"><itimoniels</a>
                 <a href="#contact" class="bg-gold text-primary px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-gold-light transition-all duration-300 hover:shadow-lg hover:shadow-gold/30">مشاوره رایگان</a>
             </div>
             <button class="md:hidden text-surface p-2" onclick="toggleMobileMenu()">
@@ -98,7 +98,7 @@
                 <a href="#services" onclick="toggleMobileMenu()" class="text-surface text-2xl font-medium hover:text-gold transition-colors">خدمات</a>
                 <a href="#about" onclick="toggleMobileMenu()" class="text-surface text-2xl font-medium hover:text-gold transition-colors">درباره ما</a>
                 <a href="#testimonials" onclick="toggleMobileMenu()" class="text-surface text-2xl font-medium hover:text-gold transition-colors">نظرات</a>
-                <a href="#contact" onclick="toggleMobileMenu()" class="bg-gold text-primary px-8 py-3 rounded-full text-lg font-semibold mt-4">مشاوره رایگان</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="bg-gold text:primary px-8 py-3 rounded-full text-lg font-semibold mt-4">مشاوره رایگان</a>
             </div>
         </div>
     </nav>
@@ -124,8 +124,8 @@
                         <span class="text-gradient-gold">جسم و روح</span>
                     </h1>
                     <p class="text-surface/70 text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
-                        بهبود ریشه‌ای مشکلات سلامتی فقط با ترکیب‌های گیاهی و حکمت سنتی.
-                        بازگرداندن شادابی و نشاط به زندگی شما، بدون عوارض مواد شیمیایی.
+                        کمک به بهبود مشکلات سلامتی با ترکیب‌های گیاهی و حکمت سنتی.
+                        قدمی طبیعی به سمت شادابی و نشاط بیشتر.
                     </p>
                     <div class="flex flex-wrap gap-4 mb-12">
                         <a href="#services" class="bg-gold text-primary px-8 py-4 rounded-full text-base font-semibold hover:bg-gold-light transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 flex items-center gap-2">
@@ -143,12 +143,12 @@
                             <div class="text-surface/60 text-sm mt-1">سال سابقه</div>
                         </div>
                         <div class="text-center border-x border-surface/15">
-                            <div class="text-3xl md:text-4xl font-bold text-gold counter-value" data-target="5000">0</div>
+                            <div class="text-3xl md:text-4xl font-bold text-gold counter-value" data-target="3200">0</div>
                             <div class="text-surface/60 text-sm mt-1">مراجع راضی</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-3xl md:text-4xl font-bold text-gold counter-value" data-target="50">0</div>
-                            <div class="text-surface/60 text-sm mt-1">ترکیب گیاهی</div>
+                            <div class="text-3xl md:text-4xl font-bold text-gold counter-value" data-target="40">0</div>
+                            <div class="text-surface/60 text-sm mt-1">نوع گیاه دارویی</div>
                         </div>
                     </div>
                 </div>
@@ -194,98 +194,86 @@
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-accent text-sm font-semibold tracking-widest uppercase">خدمات عطاری</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
-                    مشکلاتی که <span class="text-gold">بهبود</span> می‌شوند
+                    زمینه‌های <span class="text-gold">تخصصی</span> ما
                 </h2>
                 <p class="text-primary/60 text-lg max-w-2xl mx-auto">
-                    با استفاده از ترکیب‌های گیاهی اثبات‌شده حکمت سنتی، مشکلات زیر به صورت ریشه‌ای بهبود می‌یابند
+                    ارائه ترکیب‌های گیاهی متناسب با حکمت سنتی برای کمک به بهبود مشکلات زیر
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="treatment-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
-                    <div class="treatment-icon w-16 h-16 rounded-2xl bg-red-50 flex items-center justify-center mb-6 transition-all duration-500">
+                <div class="service-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-red-50 flex items-center justify-center mb-6 transition-all duration-500">
                         <span class="iconify text-red-500 text-3xl" data-icon="mdi:liver"></span>
                     </div>
                     <h3 class="text-xl font-bold mb-3">کبد چرب</h3>
-                    <p class="text-primary/60 leading-relaxed mb-4">
-                        بهبود کبد چرب درجه ۱ و ۲ با ترکیبات گیاهی تنظیم‌کننده چربی خون و پاکسازی کبد
-                    </p>
+                    <p class="text-primary/60 leading-relaxed mb-4">ترکیبات گیاهی تنظیم‌کننده چربی خون و پاکسازی کبد، کمک به بهبود کبد چرب درجه خفیف و متوسط</p>
                     <div class="flex items-center gap-2 text-gold font-medium group-hover:gap-3 transition-all duration-300">
                         <span class="text-sm">اطلاعات بیشتر</span>
                         <span class="iconify text-lg" data-icon="mdi:arrow-left"></span>
                     </div>
                 </div>
 
-                <div class="treatment-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
-                    <div class="treatment-icon w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mb-6 transition-all duration-500">
+                <div class="service-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mb-6 transition-all duration-500">
                         <span class="iconify text-blue-500 text-3xl" data-icon="mdi:water-outline"></span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">دیابت (قند خون)</h3>
-                    <p class="text-primary/60 leading-relaxed mb-4">
-                        کنترل و تنظیم قند خون با گیاهان دارویی مؤثر مانند فارسیا، تل مکھی و جنسینگ
-                    </p>
+                    <h3 class="text-xl font-bold mb-3">تنظیم قند خون</h3>
+                    <p class="text-primary/60 leading-relaxed mb-4">گیاهان کمک‌کننده به تنظیم قند خون به عنوان مکمل رژیم غذایی و سبک زندگی</p>
                     <div class="flex items-center gap-2 text-gold font-medium group-hover:gap-3 transition-all duration-300">
                         <span class="text-sm">اطلاعات بیشتر</span>
                         <span class="iconify text-lg" data-icon="mdi:arrow-left"></span>
                     </div>
                 </div>
 
-                <div class="treatment-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
-                    <div class="treatment-icon w-16 h-16 rounded-2xl bg-cyan-50 flex items-center justify-center mb-6 transition-all duration-500">
+                <divD-3 div class="service-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-cyan-50 flex items-center justify-center mb-6 transition-all duration-500">
                         <span class="iconify text-cyan-600 text-3xl" data-icon="mdi:snowflake"></span>
                     </div>
                     <h3 class="text-xl font-bold mb-3">سرد مزاجی</h3>
-                    <p class="text-primary/60 leading-relaxed mb-4">
-                        اصلاح مزاج سرد با گیاهان گرم و معتدل عربی، زنجبیل، دارچین و ترکیبات مخصوص
-                    </p>
+                    <p class="text-primary/60 leading-relaxed mb-4">اصلاح مزاج سرد با گیاهان گرم و معتدل مثل زنجبیل، دارچین و ترکیبات مخصوص</p>
                     <div class="flex items-center gap-2 text-gold font-medium group-hover:gap-3 transition-all duration-300">
                         <span class="text-sm">اطلاعات بیشتر</span>
                         <span class="iconify text-lg" data-icon="mdi:arrow-left"></span>
                     </div>
                 </div>
 
-                <div class="treatment-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
-                    <div class="treatment-icon w-16 h-16 rounded-2xl bg-purple-50 flex items-center justify-center mb-6 transition-all duration-500">
+                <div class="service-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-purple-50 flex items-center justify-center mb-6 transition-all duration-500">
                         <span class="iconify text-purple-500 text-3xl" data-icon="mdi:smoke-off"></span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">اعتیاد</h3>
-                    <p class="text-primary/60 leading-relaxed mb-4">
-                        ترک اعتیاد بدون عوارض با روش‌های گیاهی، کاهش تدریجی وسم و پاکسازی بدن
-                    </p>
+                    <h3 class="text-xl font-bold mb-3">کمک به ترک اعتیاد</h3>
+                    <p class="text-primary/60 leading-relaxed mb-4">گیاهان کمک‌کننده به کاهش وسم و پاکسازی بدن، در کنار مشاوره و اراده فردی</p>
                     <div class="flex items-center gap-2 text-gold font-medium group-hover:gap-3 transition-all duration-300">
                         <span class="text-sm">اطلاعات بیشتر</span>
                         <span class="iconify text-lg" data-icon="mdi:arrow-left"></span>
                     </div>
                 </div>
 
-                <div class="treatment-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
-                    <div class="treatment-icon w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center mb-6 transition-all duration-500">
+                <div class="service-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center mb-6 transition-all duration-500">
                         <span class="iconify text-amber-600 text-3xl" data-icon="mdi:stomach"></span>
                     </div>
                     <h3 class="text-xl font-bold mb-3">معده و گوارش</h3>
-                    <p class="text-primary/60 leading-relaxed mb-4">
-                        بهبود زخم معده، رفلاکس، ورم معده و مشکلات گوارشی با ترکیب‌های گیاهی مؤثر
-                    </p>
+                    <p class="text-primary/60 leading-relaxed mb-4">ترکیب‌های گیاهی تسکین‌دهنده و تقویت‌کننده سیستم گوارش</p>
                     <div class="flex items-center gap-2 text-gold font-medium group-hover:gap-3 transition-all duration-300">
                         <span class="text-sm">اطلاعات بیشتر</span>
                         <span class="iconify text-lg" data-icon="mdi:arrow-left"></span>
                     </div>
                 </div>
 
-                <div class="treatment-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
-                    <div class="treatment-icon w-16 h-16 rounded-2xl bg-green-50 flex items-center justify-center mb-6 transition-all duration-500">
+                <div class="service-card bg-white rounded-2xl p-8 border border-primary/5 transition-all duration-500 cursor-pointer scroll-reveal group">
+                    <div class="service-icon w-16 h-16 rounded-2xl bg-green-50 flex items-center justify-center mb-6 transition-all duration-500">
                         <span class="iconify text-green-600 text-3xl" data-icon="mdi:human-male-female"></span>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">ناباروری و ضعف جنسی</h3>
-                    <p class="text-primary/60 leading-relaxed mb-4">
-                        افزایش قوای جنسی و بهبود ناباروری با گیاهان تقویتی مثل شاه‌توت، خرما و زعفران
-                    </p>
+                    <h3 class="text-xl font-bold mb-3">تقویت قوای جنسی</h3>
+                    <p class="text-primary/60 leading-relaxed mb-4">گیاهان تقویتی مثل شاه‌توت، خرما و زعفران برای افزایش نشاط و قوای بدن</p>
                     <div class="flex items-center gap-2 text-gold font-medium group-hover:gap-3 transition-all duration-300">
                         <span class="text-sm">اطلاعات بیشتر</span>
                         <span class="iconify text-lg" data-icon="mdi:arrow-left"></span>
                     </div>
                 </div>
-            </div>
+)           </div>
         </div>
     </section>
 
@@ -298,9 +286,9 @@
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="relative scroll-reveal">
-                    <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-accent/20 to-gold/10 border border-surface/10 p-12 flex flex-col items-center justify-center min-h-[400px]">
+                    <div class="relative rounded-5xl overflow-hidden bg-gradient-to-br from-accent/20 to-gold/10 border border-surface/10 p-12 flex flex-col items-center justify-center min-h-[400px]">
                         <div class="absolute top-4 right-4 text-surface/10"><span class="iconify text-8xl" data-icon="mdi:leaf"></span></div>
-                        <div class="absolute bottom-4 left-4 text-surface/10"><span class="iconify text-6xl" data-icon="mdi:flower-tulip-outline"></span></div>
+                        <div class="absolute bottom-4 left-4 text-surface/10"><span class="iconify text-6xl= data-icon="mdi:flower-tulip-outline"></span></div>
                         <div class="text-center relative z-10">
                             <div class="w-24 h-24 rounded-full bg-gold/20 border-2 border-gold/40 flex items-center justify-center mx-auto mb-6">
                                 <span class="iconify text-gold text-5xl heartbeat" data-icon="mdi:hand-heart-outline"></span>
@@ -310,13 +298,13 @@
                                 <div class="w-16 h-16 rounded-xl bg-surface/10 flex items-center justify-center"><span class="iconify text-gold text-2xl" data-icon="mdi:home-heart"></span></div>
                                 <div class="w-16 h-16 rounded-xl bg-surface/10 flex items-center justify-center"><span class="iconify text-gold text-2xl" data-icon="mdi:shield-check-outline"></span></div>
                             </div>
-                            <p class="text-surface/60 text-lg font-medium">از مشکلات تا سلامتی</p>
+                            <p class="text-surface/60 text-lg#x27;گ font-medium">از مشکل تا بهروزی</p>
                             <p class="text-gold text-sm mt-2">الخدمات الصحية المبكرة</p>
                         </div>
                     </div>
                     <div class="absolute -bottom-6 -left-6 bg-gold text-primary rounded-2xl p-6 shadow-xl">
                         <div class="text-3xl font-bold">+15</div>
-                        <div class="text-sm font-medium">سال سابقه</div>
+                        <div class="text-sm font-medium">سال'سابقه</div>
                     </div>
                 </div>
 
@@ -329,30 +317,30 @@
                     </h2>
                     <p class="text-surface/70 text-lg leading-relaxed mb-6">
                         عطاری افق روشن شمس با بیش از ۱۵ سال سابقه در زمینه گیاه‌درمانی و حکمت سنتی، 
-                        مکانی مطمئن برای بهبود ریشه‌ای مشکلات سلامتی بدون استفاده از مواد شیمیایی است.
+                        تلاش می‌کند با استفاده از گیاهان دارویی، کمکی در مسیر بهبود و نشاط باشد.
                     </p>
                     <p class="text-surface/70 leading-relaxed mb-8">
-                        ما معتقدیم هر مشکل سلامتی ریشه در عدم تعادل بدن دارد و با بازگرداندن تعادل 
-                        طبیعی با استفاده از گیاهان دارویی، می‌توان جسم و روح را مجدداً جوان کرد.
+                        ما معتقدیم تعادل طبیعی بدن پایه سلامتی است و گیاهان دارویی می‌توانند 
+                        در بازگرداندن این تعادل نقش مؤثری داشته باشند.
                     </p>
                     <div class="space-y-4 mb-8">
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0">
                                 <span class="iconify text-gold text-xl" data-icon="mdi:check-circle"></span>
                             </div>
-                            <span class="text-surface/80">فقط ترکیب‌های ۱۰۰٪ گیاهی و طبیعی</span>
+                            <span class="text-surface/80">ترکیب‌های گیاهی و طبیعی</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-G0">
+                                <span class="iconify text-gold text-xl" data-icon="mdi:check-circle"></span>
+                            </div>
+                            <span class="text-surface/80">بر اساس حکمت و تجربه سنتی</span>
                         </div>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0">
                                 <span class="iconify text-gold text-xl" data-icon="mdi:check-circle"></span>
                             </div>
-                            <span class="text-surface/80">بدون عوارض جانبی مواد شیمیایی</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0">
-                                <span class="iconify text-gold text-xl" data-icon="mdi:check-circle"></span>
-                            </div>
-                            <span class="text-surface/80">مشاوره و پیگیری رایگان تا پایان دوره</span>
+                            <span class="text-surface/80">مشاوره و پیگیری تا پایان دوره</span>
                         </div>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0">
@@ -376,7 +364,7 @@
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-accent text-sm font-semibold tracking-widest">مراحل کار</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
-                    مسیر <span class="text-gold">سلامتی</span> شما
+                    مسیر <span class="text-gold">بهروزی</span> شما
                 </h2>
             </div>
             <div class="grid md:grid-cols-4 gap-8 relative">
@@ -388,16 +376,16 @@
                     </div>
                     <div class="bg-gold/10 text-gold text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">مرحله ۱</div>
                     <h3 class="font-bold text-lg mb-2">مشاوره اولیه</h3>
-                    <p class="text-primary/60 text-sm">تماس تلفنی یا مراجعه حضوری برای بررسی وضعیت سلامتی</p>
+                    <p class="text-primary/60 text-sm">بررسی وضعیت سلامتی و آگاهی از تاریخچه مصرف داروها</p>
                 </div>
 
                 <div class="text-center scroll-reveal relative">
                     <div class="w-24 h-24 rounded-full bg-white border-2 border-accent flex items-center justify-center mx-auto mb-6 relative z-10 shadow-lg">
-                        <span class="iconify text-accent text-4xl" data-icon="mdi:stethoscope"></span>
+                        <span class="iconify text-accent text-4xl" data-icon="mdi:compass-outline"></span>
                     </div>
                     <div class="bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">مرحله ۲</div>
                     <h3 class="font-bold text-lg mb-2">شناخت مزاج</h3>
-                    <p class="text-primary/60 text-sm">تعیین مزاج و شناسایی ریشه مشکل بر اساس حکمت سنتی</p>
+                    <p class="text-primary/60 text-sm">تعیین مزاج و بررسی وضعیت@بدن بر اساس حکمت سنتی</p>
                 </div>
 
                 <div class="text-center scroll-reveal relative">
@@ -411,11 +399,11 @@
 
                 <div class="text-center scroll-reveal relative">
                     <div class="w-24 h-24 rounded-full bg-white border-2 border-accent flex items-center justify-center mx-auto mb-6 relative z-10 shadow-lg">
-                        <span class="iconify text-accent text-4xl" data-icon="mdi:heart-circle-outline"></span>
+                        <span class="iconify text-accent text-4xl" data-icon="mdi:account-heart-outline"></span>
                     </div>
                     <div class="bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">مرحله ۴</div>
-                    <h3 class="font-bold text-lg mb-2">سلامتی کامل</h3>
-                    <p class="text-primary/60 text-sm">پیگیری مستمر تا حصول نتیجه نهایی و سلامتی کامل</p>
+                    <h3 class="font-bold text-lg mb-2">پیگیری و بهروزی</h3>
+                    <p class="text-primary/60 text-sm">پیگیری مستمر و تنظیم ترکیب تا رسیدن به نتیجه مطلوب</p>
                 </div>
             </div>
         </div>
@@ -427,7 +415,7 @@
             <div class="text-center mb-16 scroll-reveal">
                 <span class="text-accent text-sm font-semibold tracking-widest">نظرات مراجعین</span>
                 <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
-                    صدای <span class="text-gold">سلامتی</span>
+                    تجربه <span class="text-gold">مراجعین</span>
                 </h2>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
@@ -440,15 +428,12 @@
                         <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
                         <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
                     </div>
-                    <p class="text-primary/70 leading-relaxed mb-6">
-                        بعد از ۳ ماه استفاده از ترکیب‌های گیاهی عطاری شمس، تمام آزمایش‌هایم نرمال شد. 
-                        واقعاً تأثیر شگفت‌انگیز گیاهان!
-                    </p>
+                    <p class="text-primary/70 leading-relaxed mb-6">با ترکیب‌های گیاهی عطاری شمس شدم بهترم. آزمایش‌هایم بهبود پیدا کرده و حس بهروزی بیشتری دارم.</p>
                     <div class="flex items-center gap-3">
                         <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center"><span class="iconify text-accent text-xl" data-icon="mdi:account"></span></div>
                         <div>
-                            <div class="font-bold">مریم احمدی</div>
-                            <div class="text-primary/50 text-sm">بهبود کبد چرب</div>
+                            <div class="font-bold">مریم ا.</div>
+                            <div class="text-primary/50 text-sm">کبد چرب</div>
                         </div>
                     </div>
                 </div>
@@ -462,14 +447,11 @@
                         <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
                         <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
                     </div>
-                    <p class="text-primary/70 leading-relaxed mb-6">
-                        قند خونم از ۳۲۰ به ۱۱۰ رسید فقط با گیاهان دارویی. هیچ ماده شیم۲ایی مصرف نکردم. 
-                        خدا قوت به استاد شمس.
-                    </p>
+                    <p class="text-primary/70 leading-relaxed mb-6">قند خونم تنظیم‌تر شد و حس شادابی بیشتری دارم. از مشاوره و پیگیری‌ها هم خیلی راضی‌ام.</p>
                     <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center"><span class="iconify text-gold text-xl" data-icon="mdi:account"></span></div>
+                        <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center"><span class="iconify text'fgold text-xl" data-icon="mdi:account"></span></div>
                         <div>
-                            <div class="font-bold">علی رضایی</div>
+                            <div class="font-bold">علی ر.</div>
                             <div class="text-primary/50 text-sm">تنظیم قند خون</div>
                         </div>
                     </div>
@@ -484,14 +466,11 @@
                         <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
                         <span class="iconify text-gold/40 text-sm" data-icon="mdi:star"></span>
                     </div>
-                    <p class="text-primary/70 leading-relaxed mb-6">
-                        بعد از سال‌ها اعتیاد، با ترکیب‌های گیاهی ترک کردم بدون درد و عوارض. 
-                        زندگی دوم پیدا کردم. ممنون افق روشن شمس.
-                    </p>
+                    <p class="text-primary/70 leading-relaxed mb-6">ترکیب‌های گیاهی بهم کمک کرد تا تدریجاً ترک کنم. مسیر سختی بود ولی حمای عطاری شمس خیلی کمکم کرد.</p>
                     <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center"><span class="iconify text-accent text-xl" data-icon="mdi:account"></span></div>
+                        <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center"><span class="iconify text-accent text-xl" data-icon="mdi:&ccount"></span></div>
                         <div>
-                            <div class="font-bold">رضا کریمی</div>
+                            <div class="font-bold">رضا ک.</div>
                             <div class="text-primary/50 text-sm">ترک اعتیاد</div>
                         </div>
                     </div>
@@ -503,19 +482,18 @@
     <!-- CTA Section -->
     <section class="py-24 px-6 md:px-12 bg-primary relative overflow-hidden">
         <div class="absolute inset-0 leaf-pattern opacity-15"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/5 rounded-full blur-3xl"></div>
+        <div class="absolute top-16 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/5 rounded-full blur-3xl"></div>
         <div class="max-w-4xl mx-auto text-center relative z-10 scroll-reveal">
             <div class="w-20 h-20 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-8 pulse-glow">
                 <span class="iconify text-gold text-4xl heartbeat" data-icon="mdi:leaf-circle-outline"></span>
             </div>
             <h2 class="text-3xl md:text-5xl font-bold text-surface mb-6">
-                جوانی مجدد
+                قدمی طبیعی
                 <br>
-                <span class="text-gradient-gold font-playfair italic">جسم و روح</span>
+                <span class="text-gradient-gold font-playfair italic">به سمت سلامتی</span>
             </h2>
             <p class="text-surface/70 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
-                سلامتی حق شماست و ما اینجا هستیم تا با قدرت گیاهان دارویی، 
-                مسیر بازگشت به شادابی و جوانی را به شما نشان دهیم.
+                با قدرت گیاهان دارویی و حکمت سنتی، مسیر بهبود و شادابی را با هم طی می‌کنیم.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#contact" class="bg-gold text-primary px-10 py-4 rounded-full text-lg font-semibold hover:bg-gold-light transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 flex items-center gap-2">
@@ -536,9 +514,7 @@
             <div class="grid lg:grid-cols-2 gap-16">
                 <div class="scroll-reveal">
                     <span class="text-accent text-sm font-semibold tracking-widest">تماس با ما</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">
-                        مشاوره <span class="text-gold">رایگان</span>
-                    </h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-4">مشاوره <span class="text-gold">رایگان</span></h2>
                     <p class="text-primary/60 mb-8">فرم زیر را پر کنید تا کارشناسان ما در اسرع وقت با شما تماس بگیرند.</p>
                     <form id="contact-form" onsubmit="handleSubmit(event)" class="space-y-5">
                         <div class="grid md:grid-cols-2 gap-5">
@@ -556,18 +532,18 @@
                             <select required class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-surface focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all duration-300 outline-none appearance-none cursor-pointer">
                                 <option value="">انتخاب کنید...</option>
                                 <option>کبد چرب</option>
-                                <option>دیابت (قند خون)</option>
+                                <option>تنظیم قند خون</option>
                                 <option>سرد مزاجی</option>
-                                <option>اعتیاد</option>
+                                <option>کمک به ترک اعتیاد</option>
                                 <option>مشکلات معده و گوارش</option>
-                                <option>ناباروری و ضعف جنسی</option>
+                                <option>تقویت قوای جنسی</option>
                                 <option>جوانی و شادابی</option>
                                 <option>سایر موارد</option>
                             </select>
                         </div>
                         <div>
                             <label class="text-sm font-medium text-primary/80 mb-2 block">توضیحات</label>
-                            <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-surface focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all duration-300 outline-none resize-none" placeholder="شرح مختصر وضعیت سلامتی خود..."></textarea>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-primary/15 bg-surface focus:border-gold focus:ring-1 focus:ring-gold/30 transition-all duration-300 outline-none resize-none" placeholder="شرح مختصر وضعیت سلامتی و داروهای در حال مصرف..."></textarea>
                         </div>
                         <button type="submit" class="w-full bg-primary text-surface py-4 rounded-xl font-semibold hover:bg-accent-hover transition-all duration-300 flex items-center justify-center gap-2">
                             <span class="iconify text-xl" data-icon="mdi:send"></span>
@@ -578,7 +554,7 @@
 
                 <div class="scroll-reveal">
                     <div class="bg-primary rounded-2xl p-8 md:p-10 text-surface relative overflow-hidden mb-8">
-                        <div class="absolute top-0 left-0 w-40 h-40 bg-gold/10 rounded-full blur-2xl"></div>
+                        <div class="absolute top-0 left-0 w-40 h640 bg-gold/10 rounded-full blur-2xl"></div>
                         <h3 class="text-xl font-bold mb-6 relative z-10">اطلاعات تماس</h3>
                         <div class="space-y-6 relative z-10">
                             <div class="flex items-start gap-4">
@@ -623,13 +599,13 @@
     <!-- Footer -->
     <footer class="bg-primary border-t border-surface/10 pt-16 pb-8 px-6 md:px-12">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
+            <div class="grid md:grid-cols-4 gap-12 mb-712">
                 <div class="md:col-span-1">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center"><span class="iconify text-gold text-lg" data-icon="mdi:white-balance-sunny"></span></div>
                         <div><div class="text-surface font-bold">عطاری افق روشن شمس</div></div>
                     </div>
-                    <p class="text-surface/50 text-sm leading-relaxed">مرکز تخصصی گیاه‌درمانی و حکمت سنتی. جوانی مجدد جسم و روح فقط با ترکیب‌های گیاهی.</p>
+                    <p class="text-surface/50 text-sm leading-relaxed">مرکز تخصصی گیاه‌درمانی و حکمت سنتی. قدمی طبیعی به سمت سلامتی.</p>
                 </div>
                 <div>
                     <h4 class="text-surface font-bold mb-4">دسترسی سریع</h4>
@@ -644,9 +620,9 @@
                     <h4 class="text-surface font-bold mb-4">خدمات</h4>
                     <ul class="space-y-2">
                         <li><a href="#services" class="text-surface/50 hover:text-gold text-sm transition-colors">کبد چرب</a></li>
-                        <li><a href="#services" class="text-surface/50 hover:text-gold text-sm transition-colors">دیابت</a></li>
+                        <li><a href="#services" class="text-surface/50 hover:text-gold text-sm transition-colors">تنظیم قند خون</a></li>
                         <li><a href="#services" class="text-surface/50 hover:text-gold text-sm transition-colors">سرد مزاجی</a></li>
-                        <li><a href="#services" class="text-surface/50 hover:text-gold text-sm transition-colors">اعتیاد</a></li>
+                        <li><a href="#services" class="text-surface/50 hover:text-gold text-sm transition-colors">ترک اعتیاد</a></li>
                     </ul>
                 </div>
                 <div>
@@ -658,12 +634,30 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-surface/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+
+            <!-- Disclaimer -->
+            <div class="border-t border-surface/10 pt-6 mb-6">
+                <p class="text-surface/30 text-xs leading-relaxed text-center max-w-3xl mx-auto">
+                    ⚠️ تمام خدمات ارائه‌شده مکمل روش‌های مرسوم هستند و جایگزین مشاوره تخصصی نمی‌شوند. 
+                    در صورت بروز مشکلات جدید یا تشدید علائم، حتماً به مراکز درمانی مراجعه کنید.
+                    در صورت مصرف داروی خاص، پیش از استفاده از هر ترکیب گیاهی با متخصص خود مشورت کنید.
+                </p>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="border-t border-surface/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
                 <p class="text-surface/40 text-sm">© ۱۴۰۴ عطاری افق روشن شمس. تمامی حقوق محفوظ است.</p>
                 <div class="flex items-center gap-2 text-surface/40 text-sm">
                     <span class="iconify text-gold text-sm heartbeat" data-icon="mdi:leaf"></span>
                     <span>ساخته‌شده با عشق به گیاهان</span>
                 </div>
+            </div>
+
+            <!-- Designer Credit -->
+            <div class="mt-6 pt-4 border-t border-surface/5 text-center">
+                <a href="tel:+989351417807" class="text-surface/25 hover:text-gold/50 text-xs transition-colors duration-300">
+                    طراحی سایت: Arsalan 09351417807
+                </a>
             </div>
         </div>
     </footer>
@@ -689,7 +683,7 @@
         document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
         const counterObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { const el = entry.target; const target = parseInt(el.dataset.target); let current = 0; const increment = target / 60; const timer = setInterval(() => { current += increment; if (current >= target) { current = target; clearInterval(timer); } el.textContent = Math.floor(current).toLocaleString('fa-IR'); }, 25); counterObserver.unobserve(el); } }); }, { threshold: 0.5 });
         document.querySelectorAll('.counter-value').forEach(el => counterObserver.observe(el));
-        function handleSubmit(e) { e.preventDefault(); showToast('درخواست مشاوره شما با موفقیت ثبت شد! به زودی با شما تماس می‌گیریم.', 'success'); e.target.reset(); }
+        function handleSubmit(e) { e.preventDefault(); showToast('درخواست مشاوره شما ثبت شد! به زودی با شما تماس می‌گیریم.', 'success'); e.target.reset(); }
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container'); const toast = document.createElement('div');
             const bgColor = type === 'success' ? 'bg-primary' : 'bg-red-500'; const icon = type === 'success' ? 'mdi:check-circle' : 'mdi:alert-circle';
