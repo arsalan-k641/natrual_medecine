@@ -60,11 +60,19 @@
         @keyframes slideIn { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
         .mobile-menu-open { transform: translateX(0) !important; }
+        .call-btn-float { animation: callPulse 2s ease-in-out infinite; }
+        @keyframes callPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); } 50% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); } }
     </style>
 </head>
 <body class="bg-surface text-primary overflow-x-hidden">
 
     <div id="toast-container" class="fixed bottom-6 left-6 z-[100] flex flex-col gap-3"></div>
+
+    <!-- Floating Call Button -->
+    <a href="tel:+989196436453" class="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center call-btn-float group" title="تماس با استاد شمس">
+        <span class="iconify text-2xl" data-icon="mdi:phone"></span>
+        <span class="absolute -top-10 right-1/2 translate-x-1/2 bg-primary text-surface text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">تماس با استاد شمس</span>
+    </a>
 
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 right-0 left-0 z-50 transition-all duration-500">
@@ -83,6 +91,10 @@
                 <a href="#services" class="text-surface/80 hover:text-gold text-sm font-medium transition-colors duration-300">خدمات</a>
                 <a href="#about" class="text-surface/80 hover:text-gold text-sm font-medium transition-colors duration-300">درباره ما</a>
                 <a href="#testimonials" class="text-surface/80 hover:text-gold text-sm font-medium transition-colors duration-300">نظرات</a>
+                <a href="tel:+989196436453" class="bg-[#25D366] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#20bd5a] transition-all duration-300 hover:shadow-lg hover:shadow-[#25D366]/30 flex items-center gap-2">
+                    <span class="iconify text-lg" data-icon="mdi:phone"></span>
+                    <span>تماس</span>
+                </a>
                 <a href="#contact" class="bg-gold text-primary px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-gold-light transition-all duration-300 hover:shadow-lg hover:shadow-gold/30">مشاوره رایگان</a>
             </div>
             <button class="md:hidden text-surface p-2" onclick="toggleMobileMenu()">
@@ -98,6 +110,10 @@
                 <a href="#services" onclick="toggleMobileMenu()" class="text-surface text-2xl font-medium hover:text-gold transition-colors">خدمات</a>
                 <a href="#about" onclick="toggleMobileMenu()" class="text-surface text-2xl font-medium hover:text-gold transition-colors">درباره ما</a>
                 <a href="#testimonials" onclick="toggleMobileMenu()" class="text-surface text-2xl font-medium hover:text-gold transition-colors">نظرات</a>
+                <a href="tel:+989196436453" onclick="toggleMobileMenu()" class="bg-[#25D366] text-white px-8 py-3 rounded-full text-lg font-semibold flex items-center gap-2">
+                    <span class="iconify text-xl" data-icon="mdi:phone"></span>
+                    <span>تماس با استاد شمس</span>
+                </a>
                 <a href="#contact" onclick="toggleMobileMenu()" class="bg-gold text-primary px-8 py-3 rounded-full text-lg font-semibold mt-4">مشاوره رایگان</a>
             </div>
         </div>
@@ -132,9 +148,9 @@
                             <span>مشاهده خدمات</span>
                             <span class="iconify text-xl" data-icon="mdi:arrow-left"></span>
                         </a>
-                        <a href="#about" class="border border-surface/30 text-surface px-8 py-4 rounded-full text-base font-medium hover:bg-surface/10 transition-all duration-300 flex items-center gap-2">
-                            <span class="iconify text-xl" data-icon="mdi:information-outline"></span>
-                            <span>درباره ما</span>
+                        <a href="tel:+989196436453" class="border border-surface/30 text-surface px-8 py-4 rounded-full text-base font-medium hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-300 flex items-center gap-2">
+                            <span class="iconify text-xl" data-icon="mdi:phone"></span>
+                            <span>تماس با استاد شمس</span>
                         </a>
                     </div>
                     <div class="grid grid-cols-3 gap-6">
@@ -250,7 +266,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">اعتیاد</h3>
                     <p class="text-primary/60 leading-relaxed mb-4">
-                        ترک اعتیاد بدون عوارض با روش‌های گیاهی، کاهش تدریجی وسم و پاکسازی بدن
+                        ترک اعتیاد با روش‌های گیاهی، کاهش تدریجی وسم و پاکسازی بدن
                     </p>
                     <div class="flex items-center gap-2 text-gold font-medium group-hover:gap-3 transition-all duration-300">
                         <span class="text-sm">اطلاعات بیشتر</span>
@@ -463,7 +479,7 @@
                         <span class="iconify text-gold text-sm" data-icon="mdi:star"></span>
                     </div>
                     <p class="text-primary/70 leading-relaxed mb-6">
-                        قند خونم از ۳۲۰ به ۱۱۰ رسید فقط با گیاهان دارویی. هیچ ماده شیم۲ایی مصرف نکردم. 
+                        قند خونم از ۲۲۰ به ۱۱۰ رسید فقط با گیاهان دارویی. هیچ ماده شیم۲ایی مصرف نکردم. 
                         خدا قوت به استاد شمس.
                     </p>
                     <div class="flex items-center gap-3">
@@ -522,9 +538,9 @@
                     <span class="iconify text-xl" data-icon="mdi:calendar-check"></span>
                     <span>رزرو وقت</span>
                 </a>
-                <a href="tel:+989123456789" class="border border-surface/30 text-surface px-10 py-4 rounded-full text-lg font-medium hover:bg-surface/10 transition-all duration-300 flex items-center gap-2">
+                <a href="tel:+989196436453" class="border border-surface/30 text-surface px-10 py-4 rounded-full text-lg font-medium hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-300 flex items-center gap-2">
                     <span class="iconify text-xl" data-icon="mdi:phone"></span>
-                    <span>تماس مستقیم</span>
+                    <span>تماس با استاد شمس</span>
                 </a>
             </div>
         </div>
@@ -584,9 +600,8 @@
                             <div class="flex items-start gap-4">
                                 <div class="w-12 h-12 rounded-xl bg-gold/20 flex items-center justify-center flex-shrink-0"><span class="iconify text-gold text-xl" data-icon="mdi:phone"></span></div>
                                 <div>
-                                    <div class="text-surface/60 text-sm mb-1">تلفن</div>
-                                    <div class="font-medium" dir="ltr">+98 912 345 6789</div>
-                                    <div class="text-surface/60 text-sm mt-1" dir="ltr">+98 21 1234 5678</div>
+                                    <div class="text-surface/60 text-sm mb-1">تلفن استاد شمس</div>
+                                    <a href="tel:+989196436453" class="font-medium hover:text-gold transition-colors duration-300" dir="ltr">0919 643 6453</a>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
@@ -605,6 +620,12 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Call Button in Contact Info -->
+                        <a href="tel:+989196436453" class="mt-8 relative z-10 w-full bg-[#25D366] text-white py-4 rounded-xl font-semibold hover:bg-[#20bd5a] transition-all duration-300 flex items-center justify-center gap-3 text-lg">
+                            <span class="iconify text-2xl" data-icon="mdi:phone"></span>
+                            <span>تماس مستقیم با استاد شمس</span>
+                        </a>
                     </div>
                     <div class="bg-white rounded-2xl p-6 border border-primary/5">
                         <h4 class="font-bold mb-4">ما را در شبکه‌های اجتماعی دنبال کنید</h4>
@@ -652,7 +673,7 @@
                 <div>
                     <h4 class="text-surface font-bold mb-4">تماس</h4>
                     <ul class="space-y-2">
-                        <li class="text-surface/50 text-sm" dir="ltr">+98 912 345 6789</li>
+                        <li><a href="tel:+989196436453" class="text-surface/50 hover:text-gold text-sm transition-colors" dir="ltr">0919 643 6453</a></li>
                         <li class="text-surface/50 text-sm">تهران، خیابان ولیعصر</li>
                         <li class="text-surface/50 text-sm">شنبه تا پنج‌شنبه: ۹ - ۱۸</li>
                     </ul>
@@ -664,6 +685,11 @@
                     <span class="iconify text-gold text-sm heartbeat" data-icon="mdi:leaf"></span>
                     <span>ساخته‌شده با عشق به گیاهان</span>
                 </div>
+            </div>
+            <!-- Designer Credit - Very Faint -->
+            <div class="mt-4 text-center">
+                <span class="text-surface/20 text-xs">طراحی سایت: </span>
+                <a href="tel:+989351417807" class="text-surface/20 hover:text-surface/35 text-xs transition-colors duration-300">Arsalan 09351417807</a>
             </div>
         </div>
     </footer>
@@ -687,17 +713,38 @@
         });
         const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('revealed'); }); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
-        const counterObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { const el = entry.target; const target = parseInt(el.dataset.target); let current = 0; const increment = target / 60; const timer = setInterval(() => { current += increment; if (current >= target) { current = target; clearInterval(timer); } el.textContent = Math.floor(current).toLocaleString('fa-IR'); }, 25); counterObserver.unobserve(el); } }); }, { threshold: 0.5 });
-        document.querySelectorAll('.counter-value').forEach(el => counterObserver.observe(el));
-        function handleSubmit(e) { e.preventDefault(); showToast('درخواست مشاوره شما با موفقیت ثبت شد! به زودی با شما تماس می‌گیریم.', 'success'); e.target.reset(); }
-        function showToast(message, type = 'success') {
-            const container = document.getElementById('toast-container'); const toast = document.createElement('div');
-            const bgColor = type === 'success' ? 'bg-primary' : 'bg-red-500'; const icon = type === 'success' ? 'mdi:check-circle' : 'mdi:alert-circle';
-            toast.className = `toast ${bgColor} text-surface px-6 py-4 rounded-xl shadow-xl flex items-center gap-3 max-w-sm`;
-            toast.innerHTML = `<span class="iconify text-gold text-xl flex-shrink-0" data-icon="${icon}"></span><span class="text-sm">${message}</span>`;
-            container.appendChild(toast); setTimeout(() => toast.remove(), 3000);
+
+        function animateCounters() {
+            document.querySelectorAll('.counter-value').forEach(counter => {
+                const target = parseInt(counter.dataset.target);
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) { current = target; clearInterval(timer); }
+                    counter.textContent = Math.floor(current).toLocaleString('fa-IR');
+                }, 16);
+            });
         }
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
+        const heroObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { animateCounters(); heroObserver.disconnect(); } }); }, { threshold: 0.3 });
+        const heroSection = document.getElementById('hero');
+        if (heroSection) heroObserver.observe(heroSection);
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast px-6 py-3 rounded-xl shadow-lg text-sm font-medium ${type === 'success' ? 'bg-[#25D366] text-white' : 'bg-red-500 text-white'}`;
+            toast.textContent = message;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            showToast('درخواست مشاوره شما با موفقیت ثبت شد. به‌زودی با شما تماس می‌گیریم.');
+            e.target.reset();
+        }
     </script>
 </body>
 </html>
